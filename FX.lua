@@ -160,7 +160,7 @@ end
 function Average(iterator)
 	return Pipe(
 		iterator,
-		Sum(0)
+		Sum
 	) / #iterator
 end
 
@@ -178,4 +178,8 @@ function Includes(value)
 
 		return result
 	end
+end
+
+function Size(iterator)
+	return #iterator
 end

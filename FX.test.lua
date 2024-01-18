@@ -5,7 +5,7 @@ local function test(name, input)
 
 	return function(check)
 		if input ~= check then
-			error("")
+			error(name .. " Error")
 		end
 
 		print("Pass!")
@@ -32,6 +32,7 @@ test(
 		Sum
 	)
 )(14)
+
 test(
 	"Reduce",
 	Pipe(
@@ -44,6 +45,7 @@ test(
 		)
 	)
 )("HelloWorld")
+
 test(
 	"Sum",
 	Pipe(
@@ -51,3 +53,35 @@ test(
 		Sum
 	)
 )(15)
+
+test(
+	"Average",
+	Pipe(
+		{ 1, 2, 3, 4, 5 },
+		Average
+	)
+)(3)
+
+test(
+	"Join",
+	Pipe(
+		{ "Hello", "Lua", "World" },
+		Join(" ")
+	)
+)("Hello Lua World")
+
+test(
+	"Range",
+	#Pipe(
+		10,
+		Range
+	)
+)(10)
+
+test(
+	"Size",
+	Pipe(
+		{ 1, 2, 3 },
+		Size
+	)
+)(3)
